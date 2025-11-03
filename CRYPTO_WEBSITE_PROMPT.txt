@@ -1,0 +1,1127 @@
+═══════════════════════════════════════════════════════════════════════════
+    PROMPT LENGKAP: WEBSITE CRYPTO TRACKING "COIN TRENDING"
+═══════════════════════════════════════════════════════════════════════════
+
+Buatkan website crypto tracking premium bernama "COIN TRENDING" dengan design modern, clean, dan responsive seperti CoinMarketCap/CoinGecko. Website harus menggunakan dark theme dengan focus pada user experience yang smooth dan professional.
+
+───────────────────────────────────────────────────────────────────────────
+📋 DESIGN SYSTEM & FOUNDATION
+───────────────────────────────────────────────────────────────────────────
+
+TYPOGRAPHY:
+• Font Family: Google Fonts "Inter" dengan weights 400, 500, 600, 700, 800
+• Font Loading: Preconnect ke fonts.googleapis.com untuk performa optimal
+
+COLOR PALETTE:
+• Background Primary: #0F0F10 (body background)
+• Background Secondary: #1A1B1E (card background)
+• Background Tertiary: #151614 (section background seperti marquee dan footer)
+• Background Accent: #202124 (banner ads, highlighted elements)
+• Border Default: #2A2D31
+• Border Hover: #3A3D41
+• Text Primary: #F5F6F7 (main text)
+• Text Secondary: #A0A3A1 (subtitle, descriptions)
+• Positive/Green: #12876A (untuk positive percentage changes)
+• Negative/Red: #E74C3C (untuk negative percentage changes)
+• Warning/Yellow: #F0B90B (untuk neutral/warning states)
+
+SPACING & SIZING:
+• Container Max Width: 1400px dengan padding horizontal 15px (mobile) sampai 20px (desktop)
+• Border Radius: 6px (buttons), 8px (small cards), 12px (token cards), 16px (banners)
+• Transition: all 0.3s ease untuk semua hover effects
+
+RESPONSIVE BREAKPOINTS:
+• Mobile: < 768px
+• Tablet: 768px - 1024px  
+• Desktop: > 1024px
+
+───────────────────────────────────────────────────────────────────────────
+🎯 KOMPONEN UTAMA WEBSITE
+───────────────────────────────────────────────────────────────────────────
+
+1. NAVBAR STICKY (56px height, #0F0F10 background)
+═══════════════════════════════════════════════════════════════════════════
+Position: Sticky top dengan z-index 100, shadow subtle di bawah
+Layout: Display flex, justify-content space-between, align-items center
+Padding: 12px horizontal (responsive)
+
+LEFT SIDE - Brand:
+• Text: "COIN TRENDING"
+• Typography: Font-size 16px, font-weight 600, letter-spacing 0.14px
+• Color: #F5F6F7
+
+RIGHT SIDE - Actions:
+A. ADD Button:
+   • Background: transparent
+   • Border: 1px solid #3A3D41
+   • Padding: 6px 10px
+   • Border-radius: 6px
+   • Height: 28px, min-width 50px
+   • Font: 12px, weight 600, color #F5F6F7
+   • Icon: Plus SVG (12x12px, stroke-width 1.5px, stroke white)
+   • Hover: background #1A1B1E, border #FFFFFF, transform scale(1.02)
+   • Transition: all 0.3s ease
+
+B. Hamburger Menu Icon:
+   • Size: 28x28px clickable area
+   • Design: 2 horizontal lines (bukan 3)
+   • Line Style: width 24px, height 2px, background #FFFFFF
+   • Position: Line 1 di top 8px, Line 2 di top 14px dari container
+   • Active State (saat menu open):
+     - Line 1: rotate 45deg, translateY 3px
+     - Line 2: rotate -45deg, translateY -3px
+   • Transition: all 0.3s ease
+   • Gap: 12px dari ADD button
+
+Navbar Behavior:
+• Sticky di top saat scroll
+• Shadow: 0 2px 8px rgba(0,0,0,0.3) saat di-scroll
+
+───────────────────────────────────────────────────────────────────────────
+2. MARQUEE SCROLLING BAR (32px height, #151614 background)
+═══════════════════════════════════════════════════════════════════════════
+Position: Sticky di bawah navbar (top: 56px), z-index 99
+Background: #151614
+Overflow: hidden
+
+GRADIENT FADE OVERLAYS:
+• Left Gradient: linear-gradient(to right, #151614, transparent)
+  Position: absolute left, width 16px, height 100%, z-index 1
+• Right Gradient: linear-gradient(to left, #151614, transparent)
+  Position: absolute right, width 16px, height 100%, z-index 1
+
+SCROLLING CONTENT:
+• Display: flex, align-items center, gap 24px
+• Animation: scroll-left 15s linear infinite
+• Keyframes: @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+• Content harus diduplikasi 2x untuk seamless loop
+
+Data Items (8 crypto, duplicate untuk loop):
+1. #1 BTC +2.5% (icon gold #FFD700)
+2. #2 ETH +1.8% (icon blue #627EEA)
+3. #3 BNB +3.2% (icon yellow #F0B90B)
+4. #4 XRP +0.9% (icon dark #23292F)
+5. #5 USDT +4.1% (icon green #1BA27A)
+6. #6 SOL +6.7% (icon purple #9945FF)
+7. #7 TRX +2.3% (icon red #FF060A)
+8. #8 USDC +5.1% (icon blue #0052FF)
+
+Item Structure:
+• Rank: font-size 10px, weight 700, color #A0A3A1, white-space nowrap
+• Icon: 14x14px circle dengan background warna crypto (dari data di atas)
+• Ticker: font-size 12px, weight 600, color #F5F6F7
+• Percentage: font-size 12px, weight 600, color #12876A (semua positive)
+• Layout: flex, align-items center, gap 4px antar elemen
+
+───────────────────────────────────────────────────────────────────────────
+3. HERO SECTION
+═══════════════════════════════════════════────════════════────────────────
+Padding: 24px 20px 0 (top right-left)
+Text-align: center
+Max-width: 1400px, margin 0 auto
+
+MAIN TITLE:
+• Text: "Track Cryptocurrency Trends"
+• Font-size: 28px (mobile), 32px (tablet), 36px (desktop)
+• Font-weight: 800
+• Line-height: 34px (mobile), 38px (tablet), 42px (desktop)
+• Letter-spacing: -0.32px
+• Color: #F5F6F7
+• Margin-bottom: 12px
+
+SUBTITLE:
+• Text: "Real-time market data and insights for top cryptocurrencies"
+• Font-size: 16px (mobile), 17px (tablet), 18px (desktop)
+• Font-weight: 500
+• Line-height: 18px
+• Color: #A0A3A1
+• Margin-bottom: 20px
+
+ADVERTISEMENT BANNER:
+• Background: #202124
+• Height: 100px (mobile), 120px (tablet/desktop)
+• Border-radius: 16px
+• Display: flex, align-items center, justify-content center
+• Box-shadow: 0 2px 8px rgba(0,0,0,0.25)
+• Text: "Advertisement Space" (font-size 14px, color #A0A3A1, weight 500)
+
+───────────────────────────────────────────────────────────────────────────
+4. ETH TRENDING SECTION (Template untuk semua token sections)
+═══════════════════════════════════════════════════════════════════────────
+Section Container:
+• Padding: 20px (mobile), 24px (tablet), 28px (desktop)
+• Background: transparent
+• Max-width: 1400px, margin 0 auto
+
+SECTION TITLE:
+• Display: flex, align-items center, gap 8px
+• Margin-bottom: 20px
+• ETH Logo: 24x24px circle background #627EEA, SVG diamond icon putih 16x16px
+• Text: "ETH Trending"
+• Font-size: 18px, weight 700, color #F5F6F7
+
+TOKEN GRID:
+• Display: grid
+• Grid Columns:
+  - Mobile: repeat(3, 1fr)
+  - Tablet (768px+): repeat(4, 1fr)
+  - Desktop (1024px+): repeat(6, 1fr)
+• Gap: 8px
+
+TOKEN CARD (12 cards):
+• Background: #1A1B1E
+• Border: 1px solid #2A2D31
+• Border-radius: 12px
+• Padding: 12px
+• Min-height: 60px
+• Cursor: pointer
+• Transition: all 0.3s ease
+• Hover State:
+  - Background: #202124
+  - Border-color: #3A3D41
+  - Transform: translateY(-2px)
+  - Box-shadow: 0 4px 12px rgba(0,0,0,0.3)
+
+Card Layout:
+• Display: flex
+• Align-items: center
+• Gap: 6px
+
+Card Elements:
+1. Rank Number:
+   • Font-size: 10px
+   • Font-weight: 700
+   • Color: #A0A3A1
+   • Min-width: 18px
+   • Text-align: center
+
+2. Token Icon:
+   • Size: 24x24px
+   • Border-radius: 50%
+   • Flex-shrink: 0
+   • Image: Gunakan placeholder dari API atau URL
+     Format: https://via.placeholder.com/24x24/627EEA/FFFFFF?text=ETH
+   • Alt text: Token ticker name
+
+3. Info Container:
+   • Flex: 1
+   • Display: flex
+   • Flex-direction: column
+   • Gap: 1px
+   
+   A. Token Ticker:
+      • Font-size: 14px
+      • Font-weight: 600
+      • Color: #F5F6F7
+      • Line-height: 1
+      • White-space: nowrap
+   
+   B. Percentage Change:
+      • Font-size: 12px
+      • Font-weight: 600
+      • Line-height: 1
+      • Color: #12876A (positive) atau #E74C3C (negative)
+      • White-space: nowrap
+
+12 ETH ECOSYSTEM TOKENS:
+1. ETH - Ethereum - +5.67% - Icon: https://via.placeholder.com/24/627EEA/FFF?text=ETH
+2. UNI - Uniswap - +8.92% - Icon: https://via.placeholder.com/24/FF007A/FFF?text=UNI
+3. LINK - Chainlink - +6.45% - Icon: https://via.placeholder.com/24/F89C35/FFF?text=LINK
+4. AAVE - Aave - +7.23% - Icon: https://via.placeholder.com/24/B6509E/FFF?text=AAVE
+5. MKR - Maker - +4.56% - Icon: https://via.placeholder.com/24/1AAB9B/FFF?text=MKR
+6. SNX - Synthetix - +9.01% - Icon: https://via.placeholder.com/24/00D1FF/FFF?text=SNX
+7. CRV - Curve - +5.34% - Icon: https://via.placeholder.com/24/40649F/FFF?text=CRV
+8. LDO - Lido - +6.78% - Icon: https://via.placeholder.com/24/00A3FF/FFF?text=LDO
+9. RPL - Rocket Pool - +8.12% - Icon: https://via.placeholder.com/24/E57147/FFF?text=RPL
+10. SUSHI - SushiSwap - +4.89% - Icon: https://via.placeholder.com/24/FA52A0/FFF?text=SUSHI
+11. BAL - Balancer - +5.67% - Icon: https://via.placeholder.com/24/1E1E1E/FFF?text=BAL
+12. 1INCH - 1inch - +7.45% - Icon: https://via.placeholder.com/24/94A6C3/FFF?text=1INCH
+
+───────────────────────────────────────────────────────────────────────────
+5. SOL TRENDING SECTION
+═══════════════════════════════════────────────────────────────────────────
+COPY EXACT STYLE dari ETH Trending Section dengan perubahan:
+
+Section Logo:
+• Background: #9945FF (Solana purple)
+• SVG Icon: Solana gradient logo
+
+12 SOL ECOSYSTEM TOKENS:
+1. SOL - Solana - +6.78% - Icon: https://via.placeholder.com/24/9945FF/FFF?text=SOL
+2. RAY - Raydium - +12.45% - Icon: https://via.placeholder.com/24/5AC1D6/FFF?text=RAY
+3. SRM - Serum - +8.91% - Icon: https://via.placeholder.com/24/00D18C/FFF?text=SRM
+4. ORCA - Orca - +10.23% - Icon: https://via.placeholder.com/24/FF5774/FFF?text=ORCA
+5. MNGO - Mango - +7.67% - Icon: https://via.placeholder.com/24/F2C94C/FFF?text=MNGO
+6. STEP - Step Finance - +9.34% - Icon: https://via.placeholder.com/24/00C9A7/FFF?text=STEP
+7. COPE - Cope - +6.12% - Icon: https://via.placeholder.com/24/C471ED/FFF?text=COPE
+8. MEDIA - Media Network - +8.45% - Icon: https://via.placeholder.com/24/10B981/FFF?text=MEDIA
+9. ROPE - Rope - +5.78% - Icon: https://via.placeholder.com/24/8B5CF6/FFF?text=ROPE
+10. FIDA - Bonfida - +7.89% - Icon: https://via.placeholder.com/24/F472B6/FFF?text=FIDA
+11. MAPS - Maps.me - +6.45% - Icon: https://via.placeholder.com/24/3B82F6/FFF?text=MAPS
+12. TULIP - Tulip Protocol - +9.67% - Icon: https://via.placeholder.com/24/EC4899/FFF?text=TULIP
+
+───────────────────────────────────────────────────────────────────────────
+6. BSC TRENDING SECTION
+═══════════════════════════════════════════════════════════════────────────
+COPY EXACT STYLE dari ETH Trending Section dengan perubahan:
+
+Section Logo:
+• Background: #F0B90B (Binance yellow)
+• SVG Icon: BNB diamond logo
+
+12 BSC ECOSYSTEM TOKENS:
+1. BNB - BNB - +4.56% - Icon: https://via.placeholder.com/24/F0B90B/FFF?text=BNB
+2. CAKE - PancakeSwap - +11.23% - Icon: https://via.placeholder.com/24/633001/FFF?text=CAKE
+3. BAKE - BakerySwap - +8.67% - Icon: https://via.placeholder.com/24/E27C31/FFF?text=BAKE
+4. BURGER - Burger - +9.45% - Icon: https://via.placeholder.com/24/FFA800/FFF?text=BURGER
+5. AUTO - Auto - +7.12% - Icon: https://via.placeholder.com/24/4CAF50/FFF?text=AUTO
+6. ALPACA - Alpaca Finance - +10.89% - Icon: https://via.placeholder.com/24/FF6B9D/FFF?text=ALPACA
+7. XVS - Venus - +6.34% - Icon: https://via.placeholder.com/24/9C27B0/FFF?text=XVS
+8. BELT - Belt - +8.78% - Icon: https://via.placeholder.com/24/00BCD4/FFF?text=BELT
+9. EPS - Ellipsis - +5.91% - Icon: https://via.placeholder.com/24/2196F3/FFF?text=EPS
+10. WATCH - Yieldwatch - +7.56% - Icon: https://via.placeholder.com/24/FF9800/FFF?text=WATCH
+11. TWT - Trust Wallet - +9.23% - Icon: https://via.placeholder.com/24/3375BB/FFF?text=TWT
+12. SFP - SafePal - +6.67% - Icon: https://via.placeholder.com/24/607D8B/FFF?text=SFP
+
+───────────────────────────────────────────────────────────────────────────
+7. FILTERABLE TRENDING SECTION
+═══════════════────────────────────────────────────────────────────────────
+Section Container:
+• Padding: 20px (sama seperti ETH section)
+• Max-width: 1400px
+
+SECTION TITLE:
+• Text: "Network Trending"
+• Font-size: 18px, weight 700, margin-bottom 20px
+
+FILTER TABS:
+• Display: flex, gap 24px
+• Overflow-x: auto (untuk mobile)
+• Border-bottom: 1px solid #2A2D31
+• Padding-bottom: 4px
+• Margin-bottom: 20px
+
+Tab Button Style:
+• Background: none/transparent
+• Border: none
+• Padding: 8px 0
+• Font-size: 14px
+• Font-weight: 600
+• Color: #A0A3A1 (inactive), #F5F6F7 (active)
+• Cursor: pointer
+• White-space: nowrap
+• Position: relative
+• Transition: color 0.3s ease
+
+Active Tab Indicator:
+• Position: absolute, bottom -4px, left 0, right 0
+• Height: 2px
+• Background: #FFFFFF
+• Border-radius: 1px
+
+4 TABS dengan Icons:
+1. ALT Trending (default active)
+   • Icon: Star SVG 14x14px, color #FF9500
+   • Text: "ALT Trending"
+
+2. BASE Trending
+   • Icon: Circle SVG 14x14px, color #0052FF
+   • Text: "BASE Trending"
+
+3. TRON Trending
+   • Icon: Triangle SVG 14x14px, color #FF060A
+   • Text: "TRON Trending"
+
+4. POL Trending
+   • Icon: Polygon SVG 14x14px, color #8247E5
+   • Text: "POL Trending"
+
+TAB CONTENT:
+COPY EXACT token grid dan card style dari ETH Trending
+
+ALT TRENDING TOKENS (default visible):
+1. BASE - Base - +15.67% - #0052FF
+2. ARB - Arbitrum - +12.34% - #28A0F0
+3. OP - Optimism - +10.89% - #FF0420
+4. IMX - Immutable X - +14.23% - #0DB2AC
+5. MATIC - Polygon - +9.56% - #8247E5
+6. AVAX - Avalanche - +11.78% - #E84142
+7. FTM - Fantom - +8.45% - #1969FF
+8. NEAR - Near Protocol - +13.91% - #00C1DE
+9. ATOM - Cosmos - +7.67% - #2E3148
+10. DOT - Polkadot - +10.12% - #E6007A
+11. APT - Aptos - +12.89% - #00C9A7
+12. SUI - Sui - +9.34% - #4DA2FF
+
+BASE TRENDING TOKENS (hidden by default):
+1-12. [12 BASE ecosystem tokens dengan style sama]
+
+TRON TRENDING TOKENS (hidden by default):
+1-12. [12 TRON ecosystem tokens dengan style sama]
+
+POL TRENDING TOKENS (hidden by default):
+1-12. [12 POL ecosystem tokens dengan style sama]
+
+JavaScript untuk Tab Switching:
+• Click pada tab → add/remove 'active' class
+• Show/hide content berdasarkan data-tab attribute
+
+───────────────────────────────────────────────────────────────────────────
+8. CRYPTOCURRENCIES LIST SECTION (Template untuk list format)
+═══════════════════════════════════════────────────────────────════────────
+Section Container:
+• Padding: 20px
+• Max-width: 1400px
+
+SECTION TITLE:
+• Text: "Cryptocurrencies"
+• Font-size: 18px, weight 700, margin-bottom 20px
+
+FILTER TABS (horizontal scrollable):
+• Display: flex, gap 16px
+• Overflow-x: auto
+• Padding-bottom: 12px
+• Margin-bottom: 16px
+• Hide scrollbar: scrollbar-width: none, -webkit-scrollbar: display none
+
+Tab Pills Style:
+• Background: transparent
+• Border: 1px solid #2A2D31
+• Padding: 6px 14px
+• Border-radius: 20px (pill shape)
+• Font-size: 12px, weight 600
+• Color: #A0A3A1 (inactive), #F5F6F7 (active)
+• White-space: nowrap
+• Transition: all 0.3s ease
+• Active State:
+  - Background: #1A1B1E
+  - Border-color: #FFFFFF
+
+10 Filter Options:
+1. ALL (default active)
+2. MEME
+3. AI
+4. DEFI
+5. GAMING
+6. LAYER1
+7. LAYER2
+8. RWA
+9. PRIVACY
+10. STABLE
+
+CRYPTOCURRENCY LIST:
+• Display: flex, flex-direction column
+• Gap: 0 (no gap, border-bottom as separator)
+
+List Item Style:
+• Display: flex
+• Justify-content: space-between
+• Align-items: center
+• Padding: 12px 0
+• Border-bottom: 1px solid #2A2D31
+• Cursor: pointer
+• Transition: background 0.3s ease
+• Hover: background rgba(255,255,255,0.02)
+• Last item: border-bottom none
+
+Item Layout (Left Side):
+• Display: flex, align-items center, gap 10px
+
+1. Rank Number:
+   • Width: 32px
+   • Font-size: 12px, weight 700
+   • Color: #A0A3A1
+   • Text-align: center
+
+2. Token Icon:
+   • Size: 28x28px
+   • Border-radius: 50%
+   • Flex-shrink: 0
+   • Image: Placeholder URL format sama seperti sebelumnya
+
+3. Token Info (column):
+   • Display: flex, flex-direction column, gap 2px
+   
+   A. Ticker Name:
+      • Font-size: 14px, weight 600
+      • Color: #F5F6F7
+      • Line-height: 1
+   
+   B. Market Cap:
+      • Font-size: 11px, weight 500
+      • Color: #A0A3A1
+      • Line-height: 1
+      • Format: "MCap $XXX.XXB"
+
+Item Layout (Right Side):
+• Display: flex, flex-direction column, gap 2px
+• Align-items: flex-end
+
+1. Price:
+   • Font-size: 14px, weight 600
+   • Color: #F5F6F7
+   • Line-height: 1
+   • Format: "$XX,XXX.XX"
+
+2. 24h Change:
+   • Font-size: 11px, weight 600
+   • Line-height: 1
+   • Color: #12876A (positive) atau #E74C3C (negative)
+   • Format: "+X.XX%" atau "-X.XX%"
+
+15 MAJOR CRYPTOCURRENCIES:
+1. BTC - Bitcoin - MCap $950.5B - $48,234.67 - +2.34%
+2. ETH - Ethereum - MCap $380.2B - $3,156.89 - +1.78%
+3. BNB - BNB - MCap $85.3B - $567.23 - +3.12%
+4. SOL - Solana - MCap $62.8B - $145.67 - +6.45%
+5. XRP - XRP - MCap $58.1B - $1.09 - +0.89%
+6. USDT - Tether - MCap $95.7B - $1.00 - +0.01%
+7. USDC - USD Coin - MCap $42.3B - $1.00 - +0.00%
+8. ADA - Cardano - MCap $38.9B - $1.12 - +4.23%
+9. DOGE - Dogecoin - MCap $28.4B - $0.19 - +8.91%
+10. TRX - TRON - MCap $18.7B - $0.21 - +2.45%
+11. LINK - Chainlink - MCap $15.2B - $27.89 - +5.67%
+12. AVAX - Avalanche - MCap $14.8B - $54.32 - +7.12%
+13. MATIC - Polygon - MCap $12.6B - $1.34 - +3.78%
+14. DOT - Polkadot - MCap $11.3B - $14.56 - +2.91%
+15. UNI - Uniswap - MCap $9.8B - $16.23 - +4.56%
+
+───────────────────────────────────────────────────────────────────────────
+9. MARKET MOVERS SECTION
+═══════════════════────────────────────────────────────────────────────────
+Section Container sama seperti Cryptocurrencies
+
+SECTION TITLE:
+• Text: "Market Movers"
+• Font-size: 18px, weight 700
+
+FILTER TABS (3 tabs dengan pill style sama):
+1. GAINERS (default active)
+2. LOSERS
+3. NEW LISTINGS
+
+LIST CONTENT:
+COPY EXACT list style dari Cryptocurrencies List Section
+
+TAB 1 - GAINERS (default visible, 10 items):
+1. SHIB - Shiba Inu - MCap $15.2B - $0.00003456 - +24.67%
+2. DOGE - Dogecoin - MCap $28.4B - $0.19 - +18.91%
+3. PEPE - Pepe - MCap $8.7B - $0.00000234 - +16.45%
+4. SOL - Solana - MCap $62.8B - $145.67 - +14.23%
+5. AVAX - Avalanche - MCap $14.8B - $54.32 - +12.67%
+6. MATIC - Polygon - MCap $12.6B - $1.34 - +11.89%
+7. NEAR - Near - MCap $7.3B - $8.91 - +10.45%
+8. FTM - Fantom - MCap $3.2B - $1.23 - +9.78%
+9. ADA - Cardano - MCap $38.9B - $1.12 - +8.34%
+10. LINK - Chainlink - MCap $15.2B - $27.89 - +7.56%
+
+TAB 2 - LOSERS (hidden, 10 items):
+1. LUNA - Terra - MCap $1.2B - $0.00012 - -18.45%
+2. FTT - FTX Token - MCap $0.8B - $2.34 - -15.67%
+3. LUNC - Luna Classic - MCap $0.6B - $0.000089 - -12.89%
+4. ICP - Internet Computer - MCap $5.4B - $12.45 - -11.23%
+5. ATOM - Cosmos - MCap $11.3B - $14.56 - -9.78%
+6. ETC - Ethereum Classic - MCap $4.2B - $32.67 - -8.45%
+7. XTZ - Tezos - MCap $2.8B - $3.21 - -7.91%
+8. ALGO - Algorand - MCap $3.1B - $0.45 - -6.78%
+9. VET - VeChain - MCap $2.6B - $0.056 - -5.67%
+10. THETA - Theta - MCap $1.9B - $1.89 - -4.89%
+
+TAB 3 - NEW LISTINGS (hidden, 10 items):
+1. MOODENG - Moo Deng - MCap $450M - $0.234 - +45.67%
+2. GOAT - Goatseus Maximus - MCap $380M - $0.567 - +32.45%
+3. PNUT - Peanut - MCap $320M - $0.123 - +28.91%
+4. POPCAT - Popcat - MCap $290M - $0.891 - +24.78%
+5. NEIRO - Neiro - MCap $260M - $0.456 - +19.45%
+6. BRETT - Brett - MCap $240M - $0.234 - +16.78%
+7. WIF - dogwifhat - MCap $220M - $1.234 - +14.23%
+8. BONK - Bonk - MCap $200M - $0.00034 - +12.89%
+9. MYRO - Myro - MCap $180M - $0.456 - +10.45%
+10. WEN - Wen - MCap $160M - $0.00123 - +8.67%
+
+───────────────────────────────────────────────────────────────────────────
+10. MARKET STATISTICS SECTION
+═══════════════════════════════════────────────────────────────────────────
+Section Container:
+• Padding: 20px
+• Max-width: 1400px
+
+SECTION TITLE:
+• Text: "Market Statistics"
+• Font-size: 18px, weight 700, margin-bottom 20px
+
+STATISTICS GRID:
+• Display: grid
+• Grid Columns:
+  - Mobile (<768px): repeat(2, 1fr)
+  - Tablet (768px-1024px): repeat(3, 1fr)
+  - Desktop (>1024px): repeat(6, 1fr)
+• Gap: 8px (mobile), 10px (tablet), 12px (desktop)
+
+STAT CARD STYLE:
+• Background: #1A1B1E
+• Border: 1px solid #2A2D31
+• Border-radius: 8px
+• Padding: 12px (mobile), 14px (tablet), 16px (desktop)
+• Cursor: pointer
+• Transition: all 0.3s ease
+• Hover:
+  - Background: #202124
+  - Border-color: #3A3D41
+  - Transform: translateY(-1px)
+  - Box-shadow: 0 4px 12px rgba(0,0,0,0.2)
+
+Card Layout (Top Row):
+• Display: flex, justify-content space-between, align-items center
+• Margin-bottom: 8px
+
+1. Label:
+   • Font-size: 11px (mobile), 12px (tablet+)
+   • Font-weight: 500
+   • Color: #A0A3A1
+   • Line-height: 1.2
+
+2. Icon Container:
+   • Size: 18x18px
+   • Border-radius: 4px
+   • Display: flex, align-items center, justify-content center
+   • Background: [Berbeda untuk setiap card]
+   
+   SVG Icon:
+   • Size: 12x12px
+   • Color: #FFFFFF
+
+Card Layout (Bottom Row):
+• Display: flex, justify-content space-between, align-items baseline
+• Gap: 8px
+
+1. Value:
+   • Font-size: 18px (mobile), 20px (tablet), 22px (desktop)
+   • Font-weight: 700
+   • Color: #F5F6F7
+   • Line-height: 1
+
+2. Change Badge:
+   • Font-size: 11px
+   • Font-weight: 600
+   • Padding: 2px 6px
+   • Border-radius: 4px
+   • Background: rgba(18,135,106,0.1) (positive) atau rgba(231,76,60,0.1) (negative)
+   • Color: #12876A (positive) atau #E74C3C (negative)
+
+6 STAT CARDS:
+
+CARD 1 - Total Market Cap:
+• Label: "Total Market Cap"
+• Icon Background: #FFD700 (gold)
+• Icon: Layers/Stack SVG
+• Value: "$2.45T"
+• Change: "+2.34%" (positive)
+
+CARD 2 - 24h Volume:
+• Label: "24h Volume"
+• Icon Background: #627EEA (blue)
+• Icon: Chart line trending up SVG
+• Value: "$89.2B"
+• Change: "+5.67%" (positive)
+
+CARD 3 - BTC Dominance:
+• Label: "BTC Dominance"
+• Icon Background: #F0B90B (yellow)
+• Icon: Clock/Timer SVG
+• Value: "58.7%"
+• Change: "-0.12%" (negative)
+
+CARD 4 - ETH Dominance:
+• Label: "ETH Dominance"
+• Icon Background: #9945FF (purple)
+• Icon: Diamond/Gem SVG
+• Value: "18.4%"
+• Change: "+0.45%" (positive)
+
+CARD 5 - Active Cryptos:
+• Label: "Active Cryptos"
+• Icon Background: #12876A (green)
+• Icon: Document/File SVG
+• Value: "2,847"
+• Change: "+12" (positive, tanpa %)
+
+CARD 6 - Fear & Greed Index:
+• Label: "Fear & Greed"
+• Icon Background: #E74C3C (red)
+• Icon: Smiley face SVG
+• Value: "74"
+• Change: "Greed" (text, color #F0B90B untuk greed, #E74C3C untuk fear)
+
+───────────────────────────────────────────────────────────────────────────
+11. PARTNERS SECTION
+═══════════════────────────────────────────────────────────────────────────
+Section Container:
+• Padding: 20px
+• Border-top: 1px solid #2A2D31
+• Background: transparent
+• Max-width: 1400px
+
+SECTION TITLE (optional, bisa tanpa title):
+• Text: "Powered by" (opsional)
+• Font-size: 12px, weight 500, color #A0A3A1
+• Text-align: center, margin-bottom 16px
+
+PARTNERS CONTAINER:
+• Display: flex
+• Align-items: center
+• Justify-content: center
+• Gap: 40px (mobile), 60px (tablet), 80px (desktop)
+• Flex-wrap: wrap
+
+PARTNER LOGO STYLE:
+• Height: 32px (mobile), 36px (tablet), 40px (desktop)
+• Width: auto
+• Opacity: 0.15
+• Transition: opacity 0.3s ease, transform 0.3s ease
+• Hover:
+  - Opacity: 0.3
+  - Transform: translateY(-2px)
+• Color/Fill: #F5F6F7
+
+2 PARTNER LOGOS:
+
+1. Dexscreener Logo:
+   • SVG dengan text "Dexscreener" dan icon
+   • Ukuran proporsional dengan height
+
+2. CoinGecko Logo:
+   • SVG dengan text "CoinGecko" dan gecko icon
+   • Ukuran proporsional dengan height
+
+Alternative: Jika SVG custom tidak tersedia, gunakan text dengan styling:
+• Font-family: Inter, sans-serif
+• Font-weight: 700
+• Font-size: 18px (mobile), 20px (tablet), 24px (desktop)
+
+───────────────────────────────────────────────────────────────────────────
+12. FOOTER SECTION
+═══════════════════════════════════════────────════════════════────────────
+Footer Container:
+• Background: #151614
+• Border-top: 1px solid #2A2D31
+• Padding: 40px 20px 20px
+
+Footer Content Wrapper:
+• Max-width: 1400px, margin 0 auto
+
+FOOTER GRID LAYOUT:
+• Display: grid
+• Gap: 32px (mobile), 36px (tablet), 40px (desktop)
+• Grid Template:
+  - Mobile (<768px): 1 column
+  - Tablet (768px-1024px): 2x2 grid (brand spans 2 columns width)
+  - Desktop (>1024px): 4 equal columns
+
+═══════════════════════════════════════════════════════════════════════════
+COLUMN 1 - BRAND & SOCIAL:
+═══════════════════════════════════════════════════════════════════════════
+Grid Span: Full width on mobile, span 2 on tablet, 1 on desktop
+
+Brand Logo/Title:
+• Text: "COIN TRENDING"
+• Font-size: 18px, weight 700
+• Color: #F5F6F7
+• Margin-bottom: 12px
+
+Description:
+• Text: "Your trusted source for real-time cryptocurrency market data, trends, and insights. Track the latest prices and market movements across all major cryptocurrencies."
+• Font-size: 14px
+• Font-weight: 400
+• Line-height: 1.6
+• Color: #A0A3A1
+• Margin-bottom: 16px
+• Max-width: 400px
+
+Social Media Icons:
+• Display: flex, gap 12px
+• Margin-top: 16px
+
+Social Icon Style:
+• Size: 36x36px
+• Background: #2A2D31
+• Border-radius: 6px
+• Display: flex, align-items center, justify-content center
+• Cursor: pointer
+• Transition: all 0.3s ease
+• Hover:
+  - Background: #3A3D41
+  - Transform: scale(1.1) translateY(-2px)
+  - SVG color: #FFFFFF
+
+SVG Icon Size: 20x20px, color #A0A3A1 (default), #FFFFFF (hover)
+
+4 Social Media Icons:
+1. Twitter/X - Bird icon atau X logo
+2. Telegram - Plane/Telegram icon
+3. GitHub - GitHub cat icon
+4. Share - Share/Export icon
+
+═══════════════════════════════════════════════════════════════════════════
+COLUMN 2 - QUICK LINKS:
+═══════════════════════════════════════════════════════════════════════════
+Column Title:
+• Text: "Quick Links"
+• Font-size: 16px, weight 600
+• Color: #F5F6F7
+• Margin-bottom: 16px
+
+Links List:
+• Display: flex, flex-direction column, gap 8px
+
+Link Style:
+• Font-size: 14px
+• Font-weight: 400
+• Color: #A0A3A1
+• Text-decoration: none
+• Transition: color 0.3s ease
+• Hover: color #F5F6F7
+
+5 Links:
+1. Home
+2. Markets
+3. Trending
+4. Analytics
+5. Portfolio
+
+═══════════════════════════════════════════════════════════════════════════
+COLUMN 3 - RESOURCES:
+═══════════════════════════════════════════════════════════════════════════
+COPY EXACT style dari Quick Links dengan konten berbeda:
+
+Column Title: "Resources"
+
+5 Links:
+1. API
+2. Documentation
+3. Blog
+4. Learn Crypto
+5. Market Analysis
+
+═══════════════════════════════════════════════════════════════════════════
+COLUMN 4 - SUPPORT:
+═══════════════════════════════════════════════════════════════════════════
+COPY EXACT style dari Quick Links dengan konten berbeda:
+
+Column Title: "Support"
+
+5 Links:
+1. Help Center
+2. Contact Us
+3. Community
+4. FAQ
+5. Report Bug
+
+═══════════════════════════════════════════════════════════════════════════
+FOOTER BOTTOM:
+═══════════════════════════════════════════════════════════════════════════
+Container:
+• Border-top: 1px solid #2A2D31
+• Padding-top: 20px
+• Margin-top: 32px
+
+Layout:
+• Display: flex
+• Justify-content: space-between
+• Align-items: center
+• Flex-direction: row (desktop), column (mobile)
+• Gap: 12px (mobile)
+
+Left Side - Copyright:
+• Text: "© 2024 Coin Trending. All rights reserved."
+• Font-size: 14px
+• Font-weight: 400
+• Color: #A0A3A1
+
+Right Side - Legal Links:
+• Display: flex, gap 16px
+• Font-size: 14px
+• Color: #A0A3A1
+
+Legal Link Style:
+• Color: #A0A3A1
+• Text-decoration: none
+• Transition: color 0.3s ease
+• Hover: color #F5F6F7
+
+Link Separator: " • " (bullet point dengan spaces)
+
+3 Legal Links:
+1. Privacy Policy
+2. Terms of Service
+3. Cookie Policy
+
+Format: "Privacy Policy • Terms of Service • Cookie Policy"
+
+───────────────────────────────────────────────────────────────────────────
+💻 JAVASCRIPT FUNCTIONALITY
+───────────────────────────────────────────────────────────────────────────
+
+1. HAMBURGER MENU TOGGLE:
+═══════════════════════════════════════════════════════════════════════════
+• Click hamburger icon → toggle 'active' class
+• Active class rotates kedua garis menjadi X shape
+• Optional: Show/hide mobile menu drawer (jika ada)
+• Smooth animation 0.3s ease
+
+2. TAB SWITCHING FUNCTIONALITY:
+═══════════════════════════════════════════════════════════════════════════
+Untuk Filterable Trending, Cryptocurrencies, dan Market Movers:
+
+• Click tab → remove 'active' class dari semua tabs
+• Add 'active' class ke tab yang diklik
+• Hide semua content containers
+• Show content yang sesuai dengan tab (berdasarkan data-tab attribute)
+• Smooth fade in/out transition
+
+Example Implementation:
+```
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remove active dari semua
+    tabs.forEach(t => t.classList.remove('active'));
+    // Add active ke yang diklik
+    tab.classList.add('active');
+    // Show/hide content
+    const targetId = tab.getAttribute('data-tab');
+    contentSections.forEach(section => {
+      section.style.display = section.id === targetId ? 'block' : 'none';
+    });
+  });
+});
+```
+
+3. MARQUEE ANIMATION:
+═══════════════════════════════════════════════════════════════════════════
+CSS Animation (bukan JavaScript):
+```
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-content {
+  animation: scroll-left 15s linear infinite;
+}
+```
+
+4. SMOOTH SCROLL (Optional):
+═══════════════════════════════════════════════════════════════════════════
+• Add smooth scroll behavior ke seluruh page
+• CSS: html { scroll-behavior: smooth; }
+• Untuk internal anchor links navigation
+
+5. STICKY NAVBAR SHADOW:
+═══════════════════════════════════════════════════════════════════════════
+• Detect scroll position
+• Add shadow class saat window.scrollY > 0
+• Remove shadow saat di top (scrollY === 0)
+
+6. HOVER EFFECTS:
+═══════════════════════════════════════════════════════════════════════════
+Semua hover effects menggunakan CSS transitions:
+• Transform: translateY, scale
+• Background color changes
+• Border color changes
+• Opacity changes
+• Duration: 0.3s, easing: ease
+
+───────────────────────────────────────────────────────────────────────────
+📱 RESPONSIVE BEHAVIOR DETAILS
+───────────────────────────────────────────────────────────────────────────
+
+MOBILE (<768px):
+═══════════════════════════════════════════════════════════════════════════
+• Navbar: Full width, padding 12px 15px
+• ADD button: Show, hamburger: Show
+• Marquee: Font-size 11px, icon 12px
+• Hero title: 28px, subtitle 16px
+• Token grid: 3 columns
+• Cryptocurrency list: Compact spacing
+• Stats grid: 2 columns
+• Footer: 1 column, social centered
+• Partners: Stack vertical, gap 40px
+• Tab navigation: Horizontal scroll dengan hide scrollbar
+
+TABLET (768px - 1024px):
+═══════════════════════════════════════════════════════════════════════════
+• Navbar: Padding 12px 20px
+• Hero title: 32px, subtitle 17px
+• Token grid: 4 columns
+• Stats grid: 3 columns
+• Footer: 2x2 grid (brand spans 2 cols)
+• Partners: Horizontal, gap 60px
+
+DESKTOP (>1024px):
+═══════════════════════════════════════════════════════════════════════════
+• Container max-width: 1400px
+• Navbar: Full width dengan shadow
+• Hero title: 36px, subtitle 18px
+• Token grid: 6 columns
+• Stats grid: 6 columns
+• Footer: 4 equal columns
+• Partners: Horizontal, gap 80px
+• All hover effects active
+
+───────────────────────────────────────────────────────────────────────────
+🎨 DESIGN PRINCIPLES
+───────────────────────────────────────────────────────────────────────────
+
+1. CONSISTENCY:
+   • Spacing menggunakan multiple of 4px (4, 8, 12, 16, 20, 24, 32, 40)
+   • Border radius consistent (6, 8, 12, 16)
+   • Font sizes mengikuti scale (10, 11, 12, 14, 16, 18, 20, 22, 24, 28, 32, 36)
+   • Color usage consistent di seluruh website
+
+2. HIERARCHY:
+   • Clear visual hierarchy dengan font weights (400 < 500 < 600 < 700 < 800)
+   • Primary actions lebih prominent
+   • Supporting text dengan opacity/color lebih rendah
+
+3. ACCESSIBILITY:
+   • Color contrast ratio minimal 4.5:1 untuk text
+   • Focus states visible untuk keyboard navigation
+   • Alt text untuk semua images
+   • Semantic HTML tags (header, nav, main, section, footer)
+
+4. PERFORMANCE:
+   • Lazy load images jika memungkinkan
+   • Optimize font loading dengan font-display: swap
+   • Minimize repaints dengan GPU-accelerated properties (transform, opacity)
+   • Efficient CSS selectors
+
+5. USER EXPERIENCE:
+   • Smooth transitions semua interactions
+   • Loading states untuk dynamic content
+   • Error states dengan helpful messages
+   • Touch-friendly sizes untuk mobile (minimum 44x44px)
+
+───────────────────────────────────────────────────────────────────────────
+🔧 TECHNICAL IMPLEMENTATION NOTES
+───────────────────────────────────────────────────────────────────────────
+
+HTML STRUCTURE:
+• Semantic HTML5 tags
+• BEM naming convention untuk CSS classes (optional tapi recommended)
+• Data attributes untuk JavaScript interactions (data-tab, data-filter)
+• Aria labels untuk accessibility
+
+CSS ORGANIZATION:
+• Reset/Normalize styles
+• CSS Variables untuk colors, spacing
+• Mobile-first media queries
+• Modular CSS (sections separated)
+• Utility classes untuk common patterns
+
+IMAGE PLACEHOLDERS:
+• Gunakan service seperti via.placeholder.com atau placekitten.com
+• Format: https://via.placeholder.com/SIZE/BG_COLOR/TEXT_COLOR?text=TOKEN
+• Mudah diganti dengan real API images nantinya
+• Alt text descriptive untuk accessibility
+
+SVG ICONS:
+• Inline SVG untuk icons yang perlu di-style
+• Icon libraries: Heroicons, Feather Icons, atau custom
+• Size 12px, 14px, 16px, 20px, 24px tergantung context
+• Current color untuk flexibility
+
+FONTS:
+• Google Fonts: Inter
+• Preconnect: <link rel="preconnect" href="https://fonts.googleapis.com">
+• Font display: swap untuk better performance
+• Weights: 400, 500, 600, 700, 800
+
+───────────────────────────────────────────────────────────────────────────
+✅ FINAL CHECKLIST
+───────────────────────────────────────────────────────────────────────────
+
+VISUAL:
+☑ Color scheme consistent dengan palette
+☑ Typography hierarchy jelas
+☑ Spacing consistent (multiples of 4px)
+☑ Border radius consistent
+☑ Icons size appropriate
+☑ Images dengan aspect ratio correct
+
+FUNCTIONALITY:
+☑ Hamburger menu toggle works
+☑ Tab switching works (Trending, Crypto filters, Market Movers)
+☑ Marquee animation smooth dan continuous
+☑ Hover effects smooth di semua interactive elements
+☑ Sticky navbar works dengan shadow on scroll
+
+RESPONSIVE:
+☑ Mobile (<768px): 3 token cols, 2 stat cols, 1 footer col
+☑ Tablet (768-1024px): 4 token cols, 3 stat cols, 2x2 footer
+☑ Desktop (>1024px): 6 token cols, 6 stat cols, 4 footer cols
+☑ No horizontal scroll di semua breakpoints
+☑ Touch-friendly sizes di mobile
+
+PERFORMANCE:
+☑ Fast loading time
+☑ Smooth animations (60fps)
+☑ No layout shifts
+☑ Optimized images
+
+ACCESSIBILITY:
+☑ Semantic HTML
+☑ Alt text untuk images
+☑ Keyboard navigation works
+☑ Focus states visible
+☑ Color contrast sufficient
+
+CODE QUALITY:
+☑ Clean, organized code
+☑ Comments untuk complex logic
+☑ Consistent naming convention
+☑ No console errors
+☑ Cross-browser compatible
+
+───────────────────────────────────────────────────────────────────────────
+🎯 EXPECTED RESULT
+───────────────────────────────────────────────────────────────────────────
+
+Website crypto tracking premium dengan design modern dan professional yang:
+
+✨ Terlihat seperti CoinMarketCap/CoinGecko level
+✨ Smooth animations dan transitions di semua interactions
+✨ Perfect responsive di mobile, tablet, dan desktop
+✨ Clean code structure yang mudah di-maintain
+✨ Ready untuk integration dengan real crypto APIs
+✨ Fast loading dan optimal performance
+✨ Accessible untuk semua users
+✨ Consistent design system di seluruh pages
+
+Website ini siap untuk:
+• Integration dengan CoinGecko API atau CoinMarketCap API
+• Mengganti placeholder images dengan real crypto logos
+• Menambahkan real-time data updates
+• Implementasi search functionality
+• User authentication dan portfolio features
+• Additional pages (individual coin pages, exchanges, etc)
+
+═══════════════════════════════════════════════════════════════════════════
+END OF PROMPT
+═══════════════════════════════════════════════════════════════════════════
+
+CARA PENGGUNAAN PROMPT INI:
+
+1. Copy seluruh prompt ini
+2. Paste ke AI Web Builder (v0.dev, Cursor AI, Claude, ChatGPT, dll)
+3. AI akan generate kode HTML, CSS, dan JavaScript lengkap
+4. Review hasil dan minta adjustment jika perlu
+5. Deploy ke hosting pilihan Anda
+
+TIPS:
+• Jika hasil belum perfect, minta AI untuk "make it more similar to CoinGecko"
+• Untuk details tertentu, quote bagian spesifik dari prompt ini
+• Gunakan real API untuk data: CoinGecko API (free tier available)
+• Optimize images sebelum production deployment
+• Test di multiple devices dan browsers
+
+Good luck! 🚀
